@@ -1,6 +1,6 @@
 #!/bin/bash
 MYORG=${MYORG:-holdenk}
-VERSION=${VERSION:-0.0.11}
+VERSION=${VERSION:-0.0.11a}
 BUILDX_CMD=${BUILDX_CMD:-push}
 PLATFORM=${PLATFORM:-linux/amd64,linux/arm64}
 image="${MYORG}/moonshine4homeassistant:${VERSION}"

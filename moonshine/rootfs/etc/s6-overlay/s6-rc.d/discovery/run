@@ -18,8 +18,8 @@ config=$(\
         uri "tcp://$(hostname):10300" \
 )
 
-if bashio::discovery "wyoming" "${config}" > /dev/null; then
-    bashio::log.info "Successfully send discovery information to Home Assistant."
+if bashio::discovery "moonshine" "${config}" > /dev/null; then
+    bashio::log.info "Successfully send discovery information to Home Assistant for moonshine w/ ${config}"
 else
     bashio::log.error "Discovery message to Home Assistant failed!"
 fi
