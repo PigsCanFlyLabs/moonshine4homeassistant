@@ -27,11 +27,11 @@ RUN echo 'alias python=python3' >> ~/.bashrc && \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
-        netcat-traditional &&
-    git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.1 &&
-    uv pip install "wyoming[zeroconf]==1.8.0" 'transformers==4.52.4' 'onnx-asr[cpu,hub]==0.7.0' && 
-    uv pip install -e ./wyoming-moonshine-ext &&
-    uv pip install --index-url 'https://download.pytorch.org/whl/cpu' 'torch==2.6.0' &&
+        netcat-traditional git && \
+    git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.1 && \
+    uv pip install --system "wyoming[zeroconf]==1.8.0" 'transformers==4.52.4' 'onnx-asr[cpu,hub]==0.7.0' && \
+    uv pip install --system -e ./wyoming-moonshine-ext && \
+    uv pip install --system --index-url 'https://download.pytorch.org/whl/cpu' 'torch==2.6.0' && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
