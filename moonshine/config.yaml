@@ -1,5 +1,5 @@
 ---
-version: 4.2.0-alpha0
+version: 4.2.0-alpha10
 slug: whisper
 name: Moonshine
 description: Speech-to-text with Moonshine that pretends to be whisper
