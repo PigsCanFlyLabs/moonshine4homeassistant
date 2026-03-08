@@ -1,4 +1,8 @@
-FROM python:3.12-bookworm
+ARG TARGETARCH
+FROM ghcr.io/home-assistant/amd64-base-debian:bookworm AS amd64
+FROM ghcr.io/home-assistant/aarch64-base-debian:bookworm AS arm64
+
+FROM ${TARGETARCH}
 
 # Avoid interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
