@@ -19,12 +19,13 @@ RUN apt-get update \
         build-essential netcat-traditional git cmake patchelf \
         python3 python3-full python3-dev python3-pip && \
     apt-get clean && \
-    git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.1 && \
-    ls && \
     pip install --no-cache-dir "wyoming[zeroconf]==1.8.0" 'transformers==4.52.4' 'onnx-asr[cpu,hub]==0.7.0' && \
-    pip install -e ./wyoming-moonshine-ext && \
     pip install --no-cache-dir --index-url 'https://download.pytorch.org/whl/cpu' 'torch==2.6.0' && \
     rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.1 && \
+    pip install -e ./wyoming-moonshine-ext
+
 
 WORKDIR /
 COPY rootfs /
