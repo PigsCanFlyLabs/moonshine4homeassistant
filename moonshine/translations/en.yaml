@@ -13,37 +13,7 @@ configuration:
   model:
     name: Model
     description: |
-      Whisper model that will be used for transcription (faster-whisper only).
-
-      The default model is `tiny-int8`, a compressed version of the smallest
-      Whisper model which is able to run on a Raspberry Pi 4. Compressed models
-      (`int8`) are slightly less accurate than their counterparts, but smaller
-      and faster.
-  custom_model:
-    name: Custom model
-    description: |
-      Path to a converted model directory, or a CTranslate2-converted Whisper
-      model ID from the HuggingFace Hub like
-      "Systran/faster-distil-whisper-small.en".
-
-      If custom_model_type is set to 'transformers', a HuggingFace transformers
-      Whisper model ID from HuggingFace like 'openai/whisper-tiny.en' may be
-      used.
-  custom_model_type:
-    name: Custom model type
-    description: |
-      Type of Whisper model expected from custom model.
-
-      The default is 'faster-whisper' which requires a CTranslate2-converted
-      Whisper model. If set to 'transformers', a HuggingFace transformers-based
-      Whisper model may be used.
-
-      Overrides `stt_library` when `custom_model` is set.
-  initial_prompt:
-    name: Initial prompt
-    description: >-
-      Description of audio that can help Whisper transcribe unusual words
-      better.
+      Which model to use, you can specify tiny, small or medium.
   stt_library:
     name: Speech-to-text library
     description: >-
