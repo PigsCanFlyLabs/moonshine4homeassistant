@@ -23,7 +23,10 @@ RUN apt-get update \
     pip install --no-cache-dir --index-url 'https://download.pytorch.org/whl/cpu' 'torch==2.6.0' && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --revision 9cd488aa645938d28874358f22475f7f46cb0c1e && \
+# Install moonshine voice seperately for caching
+RUN pip install moonshine-voice
+
+RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.7 && \
     pip install -e ./wyoming-moonshine-ext
 
 
