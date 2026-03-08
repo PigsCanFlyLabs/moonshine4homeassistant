@@ -26,7 +26,7 @@ RUN apt-get update \
 # Install moonshine voice seperately for caching
 RUN pip install moonshine-voice
 
-RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.10 && \
+RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.11 && \
     pip install -e ./wyoming-moonshine-ext
 
 
@@ -36,5 +36,5 @@ COPY rootfs /
 HEALTHCHECK --start-period=10m \
     CMD echo '{ "type": "describe" }' \
         | nc -w 1 localhost 10300 \
-        | grep -q "faster-whisper" \
+        | grep -q "moonshine" \
         || exit 1

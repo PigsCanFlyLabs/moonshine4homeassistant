@@ -17,6 +17,14 @@ if bashio::config.true 'debug_logging'; then
     flags+=('--debug')
 fi
 
+if bashio::config.has_value 'hass_token'; then
+   hass_token="$(bashio::config 'hass_token')"
+else
+   hass_token="${SUPERVISOR_TOKEN}"
+fi
+
+mkdir -p /data/models
+
 # shellcheck disable=SC2068
 exec python3 -m wyoming_faster_whisper \
     --uri 'tcp://0.0.0.0:10300' \
@@ -27,4 +35,4 @@ exec python3 -m wyoming_faster_whisper \
     --language "$(bashio::config 'language')" \
     --initial-prompt "$(bashio::config 'initial_prompt')" \
     --data-dir /data \
-    --download-dir /data ${flags[@]}
+    --download-dir /data/models ${flags[@]}

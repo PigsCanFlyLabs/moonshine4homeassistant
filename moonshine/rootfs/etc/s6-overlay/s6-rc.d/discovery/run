@@ -6,7 +6,7 @@
 # ==============================================================================
 declare config
 
-# Wait for Whisper to become available
+# Wait for Speech To Text to become available
 bash -c \
     "until
         echo '{ \"type\": \"describe\" }' 

@@ -1,17 +1,17 @@
 ---
-version: 4.2.0-alpha10
-slug: whisper
+version: 0.0.11
+slug: moonshine4ha
 name: Moonshine
-description: Speech-to-text with Moonshine that pretends to be whisper
+description: Speech-to-text with Moonshine
 url: https://github.com/PigsCanFlyLabs/moonshine4homeassistant
 arch:
   - amd64
   - aarch64
 init: false
 discovery:
-  - wyoming
+  - moonshine
 backup_exclude:
-  - "models*"
+  - "data*"
 map:
   - addon_config:rw
 options:
@@ -34,3 +34,5 @@ schema:
 ports:
   "10300/tcp": null
 image: holdenk/moonshine4homeassistant
+homeassistant_api: true
+homeassistant: 2023.8.0.dev20230728
