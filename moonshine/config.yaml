@@ -1,8 +1,8 @@
 ---
-version: 0.0.10
-slug: moonshine4ha
+version: 4.2.0-alpha0
+slug: whisper
 name: Moonshine
-description: Speech-to-text with Moonshine
+description: Speech-to-text with Moonshine that pretends to be whisper
 url: https://github.com/PigsCanFlyLabs/moonshine4homeassistant
 arch:
   - amd64
