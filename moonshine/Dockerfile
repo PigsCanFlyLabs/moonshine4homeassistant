@@ -26,7 +26,7 @@ RUN apt-get update \
 # Install moonshine voice seperately for caching
 RUN pip install moonshine-voice
 
-RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.11 && \
+RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.12 && \
     pip install -e ./wyoming-moonshine-ext
 
 
