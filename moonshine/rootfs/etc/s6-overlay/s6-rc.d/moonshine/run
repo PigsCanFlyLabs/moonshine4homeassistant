@@ -26,7 +26,7 @@ fi
 mkdir -p /data/models
 
 # shellcheck disable=SC2068
-exec python3 -m wyoming_faster_whisper \
+exec python3 -m wyoming_moonshine \
     --uri 'tcp://0.0.0.0:10300' \
     --zeroconf \
     --model "${model}" \
