@@ -5,4 +5,4 @@ VERSION=${VERSION:-0.0.15}
 BUILDX_CMD=${BUILDX_CMD:-push}
 PLATFORM=${PLATFORM:-linux/amd64,linux/arm64}
 image="${MYORG}/moonshine4homeassistant:${VERSION}"
-docker buildx build --platform="${PLATFORM}" -t "${image}" -f "${dockerfile}" "--${BUILDX_CMD}" --build-arg VERSION=${VERSION} .
+docker buildx build --platform="${PLATFORM}" -t "${image}" --build-arg VERSION=moonshine-${VERSION} -f "${dockerfile}" "--${BUILDX_CMD}"  .

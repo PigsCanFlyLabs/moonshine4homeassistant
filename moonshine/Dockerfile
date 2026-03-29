@@ -1,10 +1,8 @@
 ARG TARGETARCH
-ARG VERSION
 FROM ghcr.io/home-assistant/amd64-base-debian:bookworm AS amd64
 FROM ghcr.io/home-assistant/aarch64-base-debian:bookworm AS arm64
 
 FROM ${TARGETARCH}
-ENV MOONSHINE_VERSION=${VERSION}
 
 # Avoid interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -27,6 +25,10 @@ RUN apt-get update \
 
 # Install moonshine voice seperately for caching
 RUN pip install moonshine-voice
+
+# Insall the moonshine binding. ARG/VERSION here since it doesn't impact above.
+ARG VERSION
+ENV MOONSHINE_VERSION=${VERSION}
 
 RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch ${MOONSHINE_VERSION} && \
     pip install -e ./wyoming-moonshine-ext
