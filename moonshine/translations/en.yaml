@@ -1,11 +1,5 @@
 ---
 configuration:
-  beam_size:
-    name: Beam size
-    description: >-
-      Number of candidates to consider simultaneously during transcription (0 =
-      auto).  Increasing the beam size will increase accuracy at the cost of
-      performance.
   language:
     name: Language
     description: >-
@@ -14,15 +8,6 @@ configuration:
     name: Model
     description: |
       Which model to use, you can specify tiny, small or medium.
-  stt_library:
-    name: Speech-to-text library
-    description: >-
-      Speech-to-text backend library to use.
-
-      The default `auto` will select the best backend/model based on
-      language/hardware.
-
-      Overridden by `custom_model_type` when `custom_model` is set.
   debug_logging:
     name: Debug logging
     description: >-

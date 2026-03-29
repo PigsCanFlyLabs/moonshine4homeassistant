@@ -11,7 +11,6 @@ if [ "$(uname -m)" == "x86_64" ] && ! grep -qw 'avx' /proc/cpuinfo; then
 fi
 
 model="$(bashio::config 'model')"
-stt_library="$(bashio::config 'stt_library')"
 
 if bashio::config.true 'debug_logging'; then
     flags+=('--debug')
@@ -30,9 +29,6 @@ exec python3 -m wyoming_moonshine \
     --uri 'tcp://0.0.0.0:10300' \
     --zeroconf \
     --model "${model}" \
-    --stt-library "${stt_library}" \
-    --beam-size "$(bashio::config 'beam_size')" \
     --language "$(bashio::config 'language')" \
-    --initial-prompt "$(bashio::config 'initial_prompt')" \
     --data-dir /data \
     --download-dir /data/models ${flags[@]}
