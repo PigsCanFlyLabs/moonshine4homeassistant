@@ -1,4 +1,5 @@
 ARG TARGETARCH
+ARG VERSION
 FROM ghcr.io/home-assistant/amd64-base-debian:bookworm AS amd64
 FROM ghcr.io/home-assistant/aarch64-base-debian:bookworm AS arm64
 
@@ -26,7 +27,7 @@ RUN apt-get update \
 # Install moonshine voice seperately for caching
 RUN pip install moonshine-voice
 
-RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch moonshine-0.0.14 && \
+RUN git clone --depth 1 https://github.com/holdenk/wyoming-moonshine-ext.git --branch ${VERSION} && \
     pip install -e ./wyoming-moonshine-ext
 
 
