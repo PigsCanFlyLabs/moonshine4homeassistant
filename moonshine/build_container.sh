@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 MYORG=${MYORG:-holdenk}
 VERSION=${VERSION:-0.0.15}
 BUILDX_CMD=${BUILDX_CMD:-push}
